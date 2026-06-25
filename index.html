@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV. Pondok Antik | Contractor & Wood Industry Bali</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="CV. Pondok Antik adalah kontraktor dan industri kayu terpercaya di Bali. Berpengalaman sejak 1992 membangun villa, rumah, dan resort mewah.">
+    
+    <!-- Tailwind CSS (via CDN for easy editing) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Custom Configuration for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a', // Blue representing trust and professionalism
+                        secondary: '#d4af37', // Gold for premium/masterpiece feel
+                        dark: '#111827',
+                        light: '#f3f4f6'
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Animations -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Reveal Animation (Swing/Fade Up effect on scroll) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px) rotateX(-15deg);
+            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-origin: top center;
+            will-change: transform, opacity;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+
+        /* Delay utilities for grid items */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Floating WA Button Pulsing Effect */
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .wa-btn {
+            animation: pulse-wa 2s infinite;
+        }
+
+        /* Navbar Glassmorphism on scroll */
+        .nav-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            color: #1f2937 !important;
+        }
+
+        /* Hide scrollbar for horizontal scroll containers */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-12">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div>
+                        <h1 class="font-heading font-bold text-2xl tracking-wider">PONDOK ANTIK</h1>
+                        <p class="text-[10px] tracking-[0.2em] uppercase opacity-80">Contractor & Wood Industry</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 items-center font-medium text-sm lg:text-base">
+                    <a href="#beranda" class="hover:text-secondary transition duration-300">Beranda</a>
+                    <a href="#tentang" class="hover:text-secondary transition duration-300">Tentang</a>
+                    <a href="#layanan" class="hover:text-secondary transition duration-300">Layanan</a>
+                    <a href="#proyek-aktif" class="hover:text-secondary transition duration-300">Proyek Aktif</a>
+                    <a href="#portofolio" class="hover:text-secondary transition duration-300">Portofolio</a>
+                    <a href="#kontak" class="bg-secondary text-white px-5 py-2 rounded-full hover:bg-yellow-600 transition duration-300">Hubungi Kami</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="focus:outline-none text-2xl">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white text-gray-800 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2 text-center">
+                <a href="#beranda" class="block py-2 border-b hover:text-secondary">Beranda</a>
+                <a href="#tentang" class="block py-2 border-b hover:text-secondary">Tentang Kami</a>
+                <a href="#layanan" class="block py-2 border-b hover:text-secondary">Layanan</a>
+                <a href="#proyek-aktif" class="block py-2 border-b hover:text-secondary">Proyek Aktif</a>
+                <a href="#portofolio" class="block py-2 border-b hover:text-secondary">Portofolio</a>
+                <a href="#kontak" class="block py-2 text-secondary font-bold">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative h-screen flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Villa Bali" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl reveal">
+            <h4 class="text-sm md:text-lg font-medium tracking-[0.3em] uppercase mb-4 text-secondary">Welcome To CV. Pondok Antik</h4>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-6 leading-tight">Building Quality,<br>Delivering Trust.</h1>
+            <p class="text-base md:text-xl font-light mb-10 max-w-2xl mx-auto opacity-90">Kami membangun hubungan kuat dengan arsitek dan klien melalui komunikasi, kerja sama, dan kualitas tanpa kompromi sejak 1992.</p>
+            <a href="#portofolio" class="inline-block border-2 border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-medium transition-all duration-300 mr-4">Lihat Karya Kami</a>
+        </div>
+    </section>
+
+    <!-- DNA & About Section -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <img src="https://images.unsplash.com/photo-1613553507747-5f8d62ad5904?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arsitektur Tropis" class="rounded-xl shadow-2xl loading='lazy'">
+                </div>
+                <div class="reveal delay-100">
+                    <h4 class="text-secondary font-bold tracking-widest uppercase text-sm mb-2">Tentang Kami</h4>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">Integritas dan Kepercayaan Sejak 1992</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Didirikan secara personal pada tahun 1992 dan diresmikan pada 2005, <strong>CV. Pondok Antik</strong> (PT. Bale Bali Mandala) telah membangun reputasi solid berbasis efisiensi dan jaringan yang luas.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Daripada hanya berfokus pada tender, kami memprioritaskan komunikasi, niat baik, dan pemahaman bersama—nilai-nilai yang bagi kami jauh lebih tinggi daripada sekadar kontrak tertulis. Inilah DNA dari CV. Pondok Antik.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="border-l-4 border-secondary pl-4">
+                            <h3 class="font-bold text-xl text-gray-900">21+</h3>
+                            <p class="text-sm text-gray-500">Tahun Pengalaman</p>
+                        </div>
+                        <div class="border-l-4 border-secondary pl-4">
+                            <h3 class="font-bold text-xl text-gray-900">50+</h3>
+                            <p class="text-sm text-gray-500">Proyek Masterpiece</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi Misi & Layanan -->
+    <section id="layanan" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h4 class="text-secondary font-bold tracking-widest uppercase text-sm mb-2">Komitmen Kami</h4>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">Visi, Misi & Fasilitas</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Visi -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition duration-300 reveal">
+                    <div class="text-primary text-4xl mb-6"><i class="fa-solid fa-eye"></i></div>
+                    <h3 class="text-xl font-bold font-heading mb-4 text-gray-900">Visi Kami</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Menjadi perusahaan konstruksi nasional terpercaya yang dibedakan oleh kualitas, inovasi, dan layanan prima, serta menjadi pilihan utama untuk desain rumah, villa, dan bangunan knock-down.
+                    </p>
+                </div>
+
+                <!-- Misi -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition duration-300 reveal delay-100">
+                    <div class="text-primary text-4xl mb-6"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3 class="text-xl font-bold font-heading mb-4 text-gray-900">Misi Kami</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Memberikan hasil konstruksi berkualitas tinggi melampaui ekspektasi.</li>
+                        <li>Mendorong inovasi berkelanjutan dalam manajemen dan SDM.</li>
+                        <li>Membangun kemitraan jangka panjang yang saling menguntungkan.</li>
+                    </ul>
+                </div>
+
+                <!-- Workshop -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition duration-300 reveal delay-200">
+                    <div class="text-primary text-4xl mb-6"><i class="fa-solid fa-hammer"></i></div>
+                    <h3 class="text-xl font-bold font-heading mb-4 text-gray-900">Workshop & Wood Industry</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-3">
+                        Bisnis kami dilengkapi dengan workshop khusus untuk pengeringan kayu (Kiln Dry) dan pemrosesan seluas <strong>2.100 m²</strong>.
+                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Penanganan presisi ini memastikan setiap bangunan kayu kami mencapai kualitas dan ketahanan superior.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyek Sedang Berjalan -->
+    <section id="proyek-aktif" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h4 class="text-secondary font-bold tracking-widest uppercase text-sm mb-2">Ongoing Project</h4>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">Pembangunan Sedang Berjalan</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Dedikasi kami berlanjut setiap harinya. Berikut adalah proyek eksklusif yang saat ini sedang dalam tahap konstruksi.</p>
+            </div>
+
+            <!-- Kartu Proyek Khusus -->
+            <div class="bg-gray-50 border border-gray-100 rounded-2xl shadow-xl overflow-hidden reveal delay-100">
+                
+                <!-- Header Project -->
+                <div class="bg-primary px-6 py-5 md:px-10 md:py-8 text-white flex flex-col md:flex-row justify-between items-center relative overflow-hidden">
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl"></div>
+                    
+                    <div class="relative z-10 text-center md:text-left">
+                        <span class="inline-block bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full mb-3 shadow-md">SEDANG DIBANGUN</span>
+                        <h3 class="text-3xl md:text-4xl font-heading font-bold mb-1">Seriska Villa</h3>
+                        <p class="text-gray-200 font-light text-sm md:text-base"><i class="fa-solid fa-location-dot mr-2 text-secondary"></i>Ubud, Bali</p>
+                    </div>
+                    <div class="relative z-10 mt-6 md:mt-0 text-center md:text-right border-t md:border-t-0 md:border-l-4 border-secondary/50 pt-4 md:pt-0 md:pl-6">
+                        <p class="text-xs text-gray-300 uppercase tracking-widest mb-1">Pemilik</p>
+                        <p class="text-xl md:text-2xl font-bold text-secondary">Mr. Nilesh</p>
+                    </div>
+                </div>
+
+                <!-- Konten Media -->
+                <div class="p-6 md:p-10">
+                    
+                    <!-- Area Video (Slider Horizontal) -->
+                    <div class="mb-14">
+                        <div class="flex justify-between items-end mb-6">
+                            <h4 class="font-bold text-gray-800 text-lg md:text-xl font-heading border-b-2 border-secondary inline-block pb-1">Video Progres Konstruksi</h4>
+                            <span class="text-sm text-gray-500 font-medium bg-gray-200 px-3 py-1 rounded-full">6 Video</span>
+                        </div>
+                        
+                        <div class="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory scrollbar-hide">
+                            <!-- Video 1 -->
+                            <div class="min-w-[280px] md:min-w-[320px] h-48 md:h-56 bg-gray-300 rounded-xl relative snap-center shadow-sm">
+                                <video class="w-full h-full object-cover rounded-xl" controls preload="none" poster="aset/img8.webp">
+                                    <source src="aset/vid1.mp4" type="video/mp4">
+                                </video>
+                                <span class="absolute top-3 right-3 text-white text-xs font-medium bg-black/60 px-2 py-1 rounded-md pointer-events-none">Video 1</span>
+                            </div>
+                            <!-- Video 2 -->
+                            <div class="min-w-[280px] md:min-w-[320px] h-48 md:h-56 bg-gray-300 rounded-xl relative snap-center shadow-sm group overflow-hidden">
+    
+    <video id="video2" class="w-full h-full object-cover rounded-xl" preload="none" poster="aset/img3.webp">
+        <source src="aset/vid2.mp4" type="video/mp4">
+    </video>
+    
+    <div id="play-btn-2" class="absolute inset-0 bg-black/10 flex items-center justify-center cursor-pointer hover:bg-black/30 transition duration-300" onclick="jalankanVideo2()">
+        <div class="w-14 h-14 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg border border-white/60 hover:scale-110 transition duration-300">
+            <i class="fa-solid fa-play text-2xl text-white ml-1"></i>
+        </div>
+    </div>
+    
+    <span class="absolute top-3 right-3 text-white text-xs font-medium bg-black/60 px-2 py-1 rounded-md pointer-events-none z-10">Video 2</span>
+</div>
+                            <!-- Video 3 -->
+                            <div class="min-w-[280px] md:min-w-[320px] h-48 md:h-56 bg-gray-300 rounded-xl relative snap-center shadow-sm">
+                                <video class="w-full h-full object-cover rounded-xl" controls preload="none" poster="aset/img4.webp">
+                                    <source src="aset/vid3.mp4" type="video/mp4">
+                                </video>
+                                <span class="absolute top-3 right-3 text-white text-xs font-medium bg-black/60 px-2 py-1 rounded-md pointer-events-none">Video 3</span>
+                            </div>
+                            <!-- Video 4 -->
+                            <div class="min-w-[280px] md:min-w-[320px] h-48 md:h-56 bg-gray-300 rounded-xl relative snap-center shadow-sm">
+                                <video class="w-full h-full object-cover rounded-xl" controls preload="none" poster="aset/img5.webp">
+                                    <source src="aset/vid4.mp4" type="video/mp4">
+                                </video>
+                                <span class="absolute top-3 right-3 text-white text-xs font-medium bg-black/60 px-2 py-1 rounded-md pointer-events-none">Video 4</span>
+                            </div>
+                            <!-- Video 5 -->
+                            <div class="min-w-[280px] md:min-w-[320px] h-48 md:h-56 bg-gray-300 rounded-xl relative snap-center shadow-sm">
+                                <video class="w-full h-full object-cover rounded-xl" controls preload="none" poster="aset/img9.webp">
+                                    <source src="aset/vid5.mp4" type="video/mp4">
+                                </video>
+                                <span class="absolute top-3 right-3 text-white text-xs font-medium bg-black/60 px-2 py-1 rounded-md pointer-events-none">Video 5</span>
+                            </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Area Foto & 3D (Auto-scroll Slider) -->
+                    <div>
+                        <div class="flex justify-between items-end mb-6">
+                            <h4 class="font-bold text-gray-800 text-lg md:text-xl font-heading border-b-2 border-secondary inline-block pb-1">Galeri Foto Lapangan & Gambar 3D</h4>
+                            <span class="text-sm text-gray-500 font-medium bg-gray-200 px-3 py-1 rounded-full">18 Foto</span>
+                        </div>
+
+                        <!-- Slider Container with Buttons -->
+                        <div class="relative group">
+                            
+                            <!-- Panah Kiri -->
+                            <button id="btn-prev-photo" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-secondary hover:text-white text-primary p-3 rounded-r-xl shadow-lg z-10 transition duration-300 opacity-0 group-hover:opacity-100 hidden md:flex items-center justify-center">
+                                <i class="fa-solid fa-chevron-left text-xl"></i>
+                            </button>
+
+                            <!-- Track Slider 18 Foto -->
+                            <div id="photo-carousel" class="flex overflow-x-auto gap-3 md:gap-4 pb-4 snap-x snap-mandatory scrollbar-hide scroll-smooth">
+                                <!-- Generate 18 Photo Items -->
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded z-10">Progress</span>
+                                    <img src="aset/img3.webp" alt="Foto 1" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded z-10">Progress</span>
+                                    <img src="aset/img4.webp" alt="Foto 2" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">Progress</span>
+                                    <img src="aset/img5.webp" alt="Foto 3" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">Progress</span>
+                                    <img src="aset/img6.webp" alt="Foto 4" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">Progress</span>
+                                    <img src="aset/img7.webp" alt="Foto 5" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">Progress</span>
+                                    <img src="aset/img8.webp" alt="Foto 6" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">Progress</span>
+                                    <img src="aset/img9.webp" alt="Foto 7" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">3D design</span>
+                                    <img src="aset/img10.webp" alt="Foto 8" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">3D design</span>
+                                    <img src="aset/img11.webp" alt="Foto 9" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">3D design</span>
+                                    <img src="aset/img12.webp" alt="Foto 10" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">3D design</span>
+                                    <img src="aset/img13.webp" alt="Foto 11" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">3D design</span>
+                                    <img src="aset/img14.webp" alt="Foto 12" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">Progress</span>
+                                    <img src="aset/img15.webp" alt="Foto 13" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">3D design</span>
+                                    <img src="aset/img16.webp" alt="Foto 14" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">3D design</span>
+                                    <img src="aset/img17.webp" alt="Foto 15" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">3D design</span>
+                                    <img src="aset/img18.webp" alt="Foto 16" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">Progress</span>
+                                    <img src="aset/img1.webp" alt="Foto 17" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                                <div class="min-w-[260px] md:min-w-[280px] h-48 md:h-56 relative rounded-lg overflow-hidden group/item snap-start shadow-sm flex-shrink-0">
+                                    <span class="absolute top-2 right-2 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded z-10">Progress</span>
+                                    <img src="aset/img2.webp" alt="Foto 18" loading="lazy" class="w-full h-full object-cover group-hover/item:scale-110 transition duration-500">
+                                </div>
+                            </div>
+
+                            <!-- Panah Kanan -->
+                            <button id="btn-next-photo" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-secondary hover:text-white text-primary p-3 rounded-l-xl shadow-lg z-10 transition duration-300 opacity-0 group-hover:opacity-100 hidden md:flex items-center justify-center">
+                                <i class="fa-solid fa-chevron-right text-xl"></i>
+                            </button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Portofolio (Masterpieces) -->
+    <section id="portofolio" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h4 class="text-secondary font-bold tracking-widest uppercase text-sm mb-2">Masterpiece Projects</h4>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">Karya Terbaik Kami</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Sebagian dari dedikasi kami dalam membangun hunian eksklusif, villa mewah, dan resort bernuansa tropis modern di seluruh Bali.</p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="group relative overflow-hidden rounded-xl reveal cursor-pointer">
+                    <img src="aset/img19.webp" alt="OOST Indies" loading="lazy" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-700 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6 opacity-80 group-hover:opacity-100 transition duration-300">
+                        <span class="text-secondary text-sm font-bold mb-1">Oberai, Kuta Bali (2008)</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">OOST Indies</h3>
+                        <p class="text-gray-300 text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300"> showcases precise Javanese colonial-style architecture built with joglo roofing.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group relative overflow-hidden rounded-xl reveal delay-100 cursor-pointer">
+                    <img src="aset/img20.webp" alt="Villa 04 Bali Hai" loading="lazy" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-700 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6 opacity-80 group-hover:opacity-100 transition duration-300">
+                        <span class="text-secondary text-sm font-bold mb-1">Nusa Lembongan, Klungkung (2024)</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Villa 04 Bali Hai</h3>
+                        <p class="text-gray-300 text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300">precise
+construction of a natural
+thatched roof as the main
+thermal insulator.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group relative overflow-hidden rounded-xl reveal delay-200 cursor-pointer">
+                    <img src="aset/img21.webp" alt="Nidream" loading="lazy" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-700 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6 opacity-80 group-hover:opacity-100 transition duration-300">
+                        <span class="text-secondary text-sm font-bold mb-1">Kerobokan, Badung (2023)</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Nidream</h3>
+                        <p class="text-gray-300 text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300">showcases a curved façade
+that enhances visual comfort.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="group relative overflow-hidden rounded-xl reveal cursor-pointer">
+                    <img src="aset/img22.webp" alt="Allain" loading="lazy" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-700 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6 opacity-80 group-hover:opacity-100 transition duration-300">
+                        <span class="text-secondary text-sm font-bold mb-1">Canggu, Badung (2024)</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Allain</h3>
+                        <p class="text-gray-300 text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300">precision steel structure and expansive
+glass façade that maximize light and
+openness.</p>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="group relative overflow-hidden rounded-xl reveal delay-100 cursor-pointer">
+                    <img src="aset/img23.webp" alt="NJ Villa" loading="lazy" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-700 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6 opacity-80 group-hover:opacity-100 transition duration-300">
+                        <span class="text-secondary text-sm font-bold mb-1">Sanur, Denpasar, Bali (2026)</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">NJ Villa</h3>
+                        <p class="text-gray-300 text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300">precise construction with a modern
+tropical design.</p>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="group relative overflow-hidden rounded-xl reveal delay-200 cursor-pointer">
+                    <img src="aset/img24.webp" alt="Kumala Pantai Hotel" loading="lazy" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-700 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6 opacity-80 group-hover:opacity-100 transition duration-300">
+                        <span class="text-secondary text-sm font-bold mb-1">Legian, Kuta (2006)</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Kumala Pantai Hotel</h3>
+                        <p class="text-gray-300 text-sm mt-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300">precise construction blending
+classic Balinese and European
+architecture.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 reveal">
+                <p class="text-gray-500 italic mb-4">Dan puluhan proyek masterpiece lainnya (Villa Luna 4, Uma Nina Villa, Suluban Cliff, Villa Suar, dll).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer id="kontak" class="bg-dark text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Google Maps Embed -->
+            <div class="mb-12 reveal w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-lg border border-gray-800">
+                <iframe 
+                    src="https://maps.google.com/maps?q=977F%2B2R8,%20Jl.%20Tunjung%20Tutur,%20Ketewel,%20Kec.%20Sukawati,%20Kabupaten%20Gianyar,%20Bali%2080237&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                
+                <!-- Company Info -->
+                <div class="reveal">
+                    <h2 class="font-heading font-bold text-3xl mb-4">PONDOK ANTIK</h2>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        CV. Pondok Antik<br>
+                        Building Quality, Delivering Trust. Kontraktor terpercaya untuk rumah, villa, dan industri kayu sejak 1992 serta punya workshop kayu (Moulding dan Oven kayu sendiri).
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/pondokantikcontractor/" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary transition duration-300">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/pondokantikcontractor" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary transition duration-300">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="reveal delay-100">
+                    <h3 class="font-bold text-xl mb-6 border-b border-gray-700 pb-2 inline-block">Menu Singkat</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#beranda" class="hover:text-secondary transition duration-300"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Beranda</a></li>
+                        <li><a href="#tentang" class="hover:text-secondary transition duration-300"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Tentang Kami</a></li>
+                        <li><a href="#layanan" class="hover:text-secondary transition duration-300"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Fasilitas & Layanan</a></li>
+                        <li><a href="#proyek-aktif" class="hover:text-secondary transition duration-300"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Proyek Aktif</a></li>
+                        <li><a href="#portofolio" class="hover:text-secondary transition duration-300"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>Portofolio</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="reveal delay-200">
+                    <h3 class="font-bold text-xl mb-6 border-b border-gray-700 pb-2 inline-block">Hubungi Kami</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot mt-1 mr-3 text-secondary text-lg"></i>
+                            <a href="https://www.google.com/maps/search/?api=1&query=977F%2B2R8,+Jl.+Tunjung+Tutur,+Ketewel,+Kec.+Sukawati,+Kabupaten+Gianyar,+Bali+80237" target="_blank" class="hover:text-secondary transition duration-300" title="Buka di Google Maps">
+                                977F+2R8, Jl. Tunjung Tutur, Ketewel,<br>Kec. Sukawati, Kabupaten Gianyar,<br>Bali 80237.
+                            </a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-phone mr-3 text-secondary text-lg"></i>
+                            <span>+62 361 298058</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-brands fa-whatsapp mr-3 text-secondary text-lg"></i>
+                            <span>+62 812 3809 417</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-envelope mr-3 text-secondary text-lg"></i>
+                            <div>
+                                <span>cv.pondok_antik@yahoo.com</span><br>
+                                <span>pondokantik@gmail.com</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 mt-8 text-center text-gray-500 text-sm reveal">
+                <p>&copy; 2026 CV. Pondok Antik (PT. Bale Bali Mandala). All Rights Reserved.</p>
+                <p class="mt-2 text-xs">Website Developed by Profesional Web Developer</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/628123809417?text=Halo%20CV.%20Pondok%20Antik,%20saya%20tertarik%20dan%20ingin%20bertanya%20seputar%20layanan%20konstruksi." target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl z-50 wa-btn hover:-translate-y-1 transition-transform duration-300" title="Chat di WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Custom JavaScript for Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 1. Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = btn.querySelector('i');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                if(menu.classList.contains('hidden')){
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            });
+
+            // Close mobile menu on link click
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
+            // 2. Navbar Scroll Effect (Change color from transparent to solid)
+            const navbar = document.getElementById('navbar');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('nav-scrolled');
+                    navbar.classList.remove('text-white');
+                    btn.classList.add('text-gray-800');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                    navbar.classList.add('text-white');
+                    btn.classList.remove('text-gray-800');
+                }
+            });
+
+            // 3. Scroll Reveal Animation (Swing effect)
+            function reveal() {
+                var reveals = document.querySelectorAll(".reveal");
+                for (var i = 0; i < reveals.length; i++) {
+                    var windowHeight = window.innerHeight;
+                    var elementTop = reveals[i].getBoundingClientRect().top;
+                    var elementVisible = 100;
+
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add("active");
+                    }
+                }
+            }
+            // Trigger pada awal load dan setiap scroll
+            window.addEventListener("scroll", reveal);
+            reveal(); 
+
+            // 4. Auto-Scrolling Photo Slider Logic (Tadi ini yang lupa ke-copy)
+            const photoSlider = document.getElementById('photo-carousel');
+            const btnPrevPhoto = document.getElementById('btn-prev-photo');
+            const btnNextPhoto = document.getElementById('btn-next-photo');
+            
+            let autoScrollInterval;
+            const scrollAmount = 300; // Perkiraan jarak geser per item
+
+            function startAutoScroll() {
+                // Set interval untuk geser otomatis setiap 2.5 detik
+                autoScrollInterval = setInterval(() => {
+                    if (photoSlider) {
+                        // Cek jika sudah mentok di ujung kanan
+                        if (photoSlider.scrollLeft + photoSlider.clientWidth >= photoSlider.scrollWidth - 10) {
+                            // Kembali ke awal
+                            photoSlider.scrollTo({ left: 0, behavior: 'smooth' });
+                        } else {
+                            // Geser ke kanan
+                            photoSlider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                        }
+                    }
+                }, 2500); 
+            }
+
+            function stopAutoScroll() {
+                clearInterval(autoScrollInterval);
+            }
+
+            // Mulai auto scroll
+            startAutoScroll();
+
+            if (photoSlider) {
+                // Berhenti kalau mouse mengarah ke slider (di desktop) atau disentuh (di mobile)
+                photoSlider.addEventListener('mouseenter', stopAutoScroll);
+                photoSlider.addEventListener('mouseleave', startAutoScroll);
+                photoSlider.addEventListener('touchstart', stopAutoScroll);
+                photoSlider.addEventListener('touchend', startAutoScroll);
+            }
+
+            // Logika untuk Panah Navigasi Manual
+            if(btnNextPhoto && btnPrevPhoto) {
+                btnNextPhoto.addEventListener('click', () => {
+                    photoSlider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    stopAutoScroll(); // Hentikan auto
+                    startAutoScroll(); // Mulai hitung ulang
+                });
+
+                btnPrevPhoto.addEventListener('click', () => {
+                    photoSlider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    stopAutoScroll(); 
+                    startAutoScroll(); 
+                });
+
+                // Menahan panah manual juga menghentikan scroll
+                btnNextPhoto.addEventListener('mouseenter', stopAutoScroll);
+                btnNextPhoto.addEventListener('mouseleave', startAutoScroll);
+                btnPrevPhoto.addEventListener('mouseenter', stopAutoScroll);
+                btnPrevPhoto.addEventListener('mouseleave', startAutoScroll);
+            }
+        });
+        // Script khusus untuk Video 2
+            window.jalankanVideo2 = function() {
+                var vid = document.getElementById('video2');
+                var btn = document.getElementById('play-btn-2');
+                
+                // Munculkan control bawaan browser buat pause/volume
+                vid.setAttribute('controls', 'controls');
+                
+                // Play videonya
+                vid.play();
+                
+                // Hilangkan tombol custom kita
+                btn.style.display = 'none';
+            };
+    </script>
+</body>
+</html>
